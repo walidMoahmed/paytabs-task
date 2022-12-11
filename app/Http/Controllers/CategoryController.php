@@ -1,7 +1,6 @@
 <?php
-namespace App\Controllers;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Traits\GeneralTrait;
 
@@ -27,8 +26,11 @@ class CategoryController extends Controller
     public function fetch_sub_category()
     {
         if (request()->ajax()) {
+
             $data = Category::where('parent_id', request('category_id'))->get(["category_name", "id"]);
+
             return $this->returnDate('main_categories',$data,'Sub Categories Data');
+            
         }
         $this->returnError('You Must Get This Data From Ajax Only',404);
     }

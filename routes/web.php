@@ -1,6 +1,6 @@
 <?php
 
-use App\Controllers\CategoryController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
